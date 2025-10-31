@@ -1,0 +1,18 @@
+# 📦 netlify.toml
+# Configuración para desplegar una app Expo Web en Netlify
+
+[build]
+  command = "npm run build:web"
+  publish = "dist"
+  environment = { NODE_VERSION = "18" }
+
+# 🧱 Ajustes para que Netlify use Expo Web correctamente
+[build.environment]
+  EXPO_USE_WEB = "true"
+  CI = "false"
+
+# ⚙️ Redirección universal (para apps SPA)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
